@@ -9,4 +9,11 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
   jpa:
     show-sql: true
-
+  kafka:
+    consumer:
+      bootstrap-servers: 127.0.0.1:9092
+      group-id: spring
+    producer:
+      bootstrap-servers: 127.0.0.1:9092
+  application:
+    name: ok
