@@ -7,6 +7,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @EnableKafka
@@ -15,10 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoJpaApplication {
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
     public static void main(String[] args) {
         SpringApplication.run(DemoJpaApplication.class, args);
+    }
+
+    @GetMapping("/get/{id}")
+    public User get(@PathVariable("id") Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
 

@@ -19,7 +19,7 @@ import java.io.Serializable;
 //@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "t_sys_user")
-@Where(clause = "is_delete != 1")
+//@Where(clause = "is_delete != 1")
 @Cache(usage= CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="com.example.demojpa.User")
 public class User implements Serializable {
 

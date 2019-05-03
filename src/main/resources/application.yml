@@ -9,6 +9,23 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
   jpa:
     show-sql: true
+    properties:
+      hibernate:
+        cache:
+          redis:
+            expiryInSeconds:
+              default: 120
+          redisson:
+            config: redisson.yaml
+            com.example.demojpa.User:
+              timestamps:
+                eviction.max_entries: 60
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: org.redisson.hibernate.RedissonRegionFactory
+    hibernate:
+      ddl-auto: update
   kafka:
     consumer:
       bootstrap-servers: 127.0.0.1:9092
