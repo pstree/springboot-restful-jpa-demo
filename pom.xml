@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <docker.registry.url>harbor.xxx.cn/docker_repo</docker.registry.url>
+        <docker.registry.url>192.168.0.108/library/</docker.registry.url>
         <docker.registry.host>http://localhost:2375</docker.registry.host>
     </properties>
 
@@ -98,7 +98,6 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                    <serverId>tlsw_docker_repo</serverId>
                 </configuration>
             </plugin>
 
