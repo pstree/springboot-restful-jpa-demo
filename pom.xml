@@ -90,7 +90,7 @@
                     <volumes>
                         <volume>/tmp</volume>
                     </volumes>
-                    <entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>
+                    <entryPoint>java -jar $JAVA_OPTS /${project.build.finalName}.jar</entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
