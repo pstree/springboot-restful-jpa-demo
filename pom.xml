@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <docker.registry.url>192.168.0.108/library/</docker.registry.url>
+        <docker.registry.url>10.2.204.251/library</docker.registry.url>
         <docker.registry.host>http://localhost:2375</docker.registry.host>
     </properties>
 
@@ -90,7 +90,7 @@
                     <volumes>
                         <volume>/tmp</volume>
                     </volumes>
-                    <entryPoint>["java","$JAVA_OPTS","-jar","/${project.build.finalName}.jar"]</entryPoint>
+                    <entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -98,6 +98,8 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
+                    <serverId>docker_test</serverId>
+                    <pushImage>false</pushImage>
                 </configuration>
             </plugin>
 
